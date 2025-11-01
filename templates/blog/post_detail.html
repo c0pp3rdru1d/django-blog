@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{ post.title }}</title>
+  <link href="/static/css/tailwind.css" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-900">
+  <div class="max-w-3xl mx-auto p-6">
+    <a href="/" class="text-sm text-blue-600">← Back</a>
+    <h1 class="text-3xl font-bold mt-4">{{ post.title }}</h1>
+    <p class="text-xs text-gray-400 mt-1">{{ post.created_at|date:"M j, Y" }}</p>
+    {% if post.cover %}
+      <img class="rounded-xl mt-4" src="{{ post.cover.url }}" alt="">
+    {% endif %}
+    <div class="prose max-w-none mt-6">{{ post.body|linebreaks }}</div>
+  </div>
+</body>
+</html>

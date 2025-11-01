@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head <link href="/static/css/tailwind.css" rel="stylesheet">
+>
+  <meta charset="utf-8">
+  <title>Welcome to the C0pp3r F0rr3st</title>
+  <link href="/static/css/tailwind.css" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-900">
+  <div class="max-w-3xl mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6">Latest Posts</h1>
+    <div class="space-y-6">
+      {% for p in posts %}
+        <a href="{% url 'post_detail' slug=p.slug %}" class="block p-4 rounded-2xl shadow bg-white hover:shadow-md transition">
+          <h2 class="text-xl font-semibold">{{ p.title }}</h2>
+          <p class="text-gray-600 mt-2">{{ p.excerpt|default:p.body|truncatechars:160 }}</p>
+          <p class="text-xs text-gray-400 mt-2">{{ p.created_at|date:"M j, Y" }}</p>
+        </a>
+      {% empty %}
+        <p>No posts yet.</p>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>
