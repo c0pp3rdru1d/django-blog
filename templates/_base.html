@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Copper Forest{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="/static/css/tailwind.css" rel="stylesheet">
+</head>
+<body class="min-h-screen relative">
+
+  <!-- Subtle radial background glow -->
+  <div class="pointer-events-none fixed inset-0 opacity-30"
+       style="background:
+        radial-gradient(600px 300px at 20% 10%, rgba(184,115,51,0.12), transparent 70%),
+        radial-gradient(600px 300px at 80% 20%, rgba(25,83,67,0.25), transparent 70%);">
+  </div>
+
+  <header class="cf-container cf-header relative z-10">
+    <div>
+      <div class="cf-title">
+        <span class="text-copper-400">Copper</span> Forest
+      </div>
+      <div class="cf-subtitle">a quiet place for thoughts in the pines</div>
+    </div>
+    <nav class="flex items-center gap-3">
+      <a class="cf-btn" href="/">Home</a>
+      <a class="cf-btn" href="/admin/">Admin</a>
+    </nav>
+  </header>
+
+  <div class="cf-container">
+    <div class="copper-line mb-6"></div>
+  </div>
+
+  <main class="cf-container relative z-10 pb-24">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="cf-container text-xs text-gray-400 pb-10">
+    <div class="copper-line my-6"></div>
+    <p>© {{ now|date:"Y" }} Copper Forest · Built with Django</p>
+  </footer>
+</body>
+</html>

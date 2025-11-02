@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Copper Forest helpers */
+@layer base {
+  html, body { @apply bg-forest-900 text-gray-100; }
+}
+
+@layer components {
+  .cf-container { @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8; }
+  .cf-header    { @apply flex items-center justify-between py-6; }
+  .cf-title     { @apply text-2xl sm:text-3xl font-bold tracking-tight; }
+  .cf-subtitle  { @apply text-sm text-gray-300; }
+
+  /* “Window” panel style */
+  .cf-window {
+    @apply rounded-2xl shadow-window bg-forest-800/70 border border-forest-600/60 backdrop-blur-sm;
+  }
+  .cf-window-hover { @apply transition hover:shadow-glow hover:border-copper-500/60; }
+
+  .cf-chip {
+    @apply inline-flex items-center gap-2 text-xs tracking-wide uppercase;
+  }
+  .cf-chip-dot {
+    @apply w-2 h-2 rounded-full bg-copper-500;
+  }
+
+  .cf-link { @apply text-copper-400 hover:text-copper-300 underline decoration-copper-600/40; }
+  .cf-btn {
+    @apply inline-flex items-center gap-2 rounded-xl border border-copper-600/40 px-4 py-2
+           text-sm font-medium bg-forest-700 hover:bg-forest-600 transition;
+  }
+}
+
+/* Optional: copper gradient line */
+@layer utilities {
+  .copper-line {
+    background: linear-gradient(90deg, transparent, #b87333 25%, #c98c5a 50%, #b87333 75%, transparent);
+    height: 1px;
+    opacity: .35;
+  }
+}
+/* Basic styles from Tailwind CSS */
