@@ -6,9 +6,9 @@ from django.utils.text import slugify
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
-    slug = models.Slugfield(unique=True, blank=True, max_length=220)
+    slug = models.SlugField(unique=True, blank=True, max_length=220)
     excerpt = models.TextField()
-    cover = models.Imagefield(upload_to="covers/", blank=True, null=True)
+    cover = models.ImageField(upload_to="covers/", blank=True, null=True)
     published = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
